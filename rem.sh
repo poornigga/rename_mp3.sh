@@ -35,7 +35,7 @@ fi
 
 find "$1" -name "*.mp3" | while read line 
 do
-    name=`id3tool "$line" | grep "Title" | awk -F: '{ print $2 }' | awk '{sub(/^[ \t]+/, "")};1' | awk '{sub(/[ \t]+$/, "")};1' `
+    name=`id3tool "$line" | grep "Title" | awk -F: '{ print $2 }' | awk '{sub(/^[ \t]+/, ""); sub(/[ \t]+$/, "")};1'`
     echo --"${name}"--
     cp "$line" ./"$dpath"/"${name}".mp3
 done 
