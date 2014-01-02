@@ -21,12 +21,22 @@ set -o nounset                              # Treat unset variables as an error
 
 function usage() {
     echo -ne "\nusage: $0  input-dir-name output-dir-name\n\n"
+    echo -ne "\t1. id3tool must be installed\n"
+    echo -ne "\t2. on osx 10.8, you can fork from :https://github.com/poornigga/id3tool\n\n"
 }
 
 if [ $# -lt 2 ]; then
     usage;
     exit;
 fi
+
+installed=`which id3tool`
+if [ $installed  == 1 ]; then
+    echo -ne "\n\t1. id3tool must be installed\n"
+    echo -ne "\n\t2. on osx 10.8, you can fork from :https://github.com/poornigga/id3tool\n\n"
+    exit;
+fi
+
 dpath="./target"
 
 if [ ! -z "$dpath" ]; then

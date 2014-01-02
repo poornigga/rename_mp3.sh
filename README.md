@@ -9,3 +9,4 @@ rename $mp3file name using mp3file.tag.name;
 
 usage :
     ./rem.sh ./musics ./target
+    [musics folder include origin mp3 files, target folder include target mp3 file]
